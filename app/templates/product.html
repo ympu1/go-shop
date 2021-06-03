@@ -1,0 +1,18 @@
+{{ include "header" }}
+
+<section class="container">
+	<div class="product_page_grid">
+		<a href="{{ .product.Image }}" data-fancybox><img src="{{ .product.Image }}" alt="{{ .product.Name }}"></a>
+		<div class="product_page_content">
+			<h1>{{ .product.Name }}</h1>
+			<span class="product_price big_price">$<span>{{ .product.Price }}</span></span>
+			{{ range $key, $value := .product.Attributes }}
+			<p>{{ $key }}: {{ $value }}</p>
+			{{ end }}
+			<div class="product_text">{{ .product.Description }}</div>
+			<a href="#" class="buy_button">Buy</a>
+		</div>
+	</div>
+</section>
+
+{{ include "footer" }}

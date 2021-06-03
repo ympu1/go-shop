@@ -1,0 +1,24 @@
+{{ include "admin/header" }}
+
+
+<div class="container">
+	<a href="/admin/pick_add" class="big_link">+ Добавить картину</a>
+
+	<h3 class="admin_block_title">Редактировать картины:</h3>
+
+	<div class="shop_grid shop_grid_small">
+		{{ range .products}}
+		<div class="product_block" data-id="{{ .ID }}">
+			<a href="{{ .Image }}" class="product_image" data-fancybox="gallery" style="background-image: url({{ .Thumb }});"></a>
+			<div class="product_inf">
+				<h3>{{ .Name }}</h3>
+				<a href="/admin/edit_pick/{{ .ID }}" class="edit_pick">Редактировать</a>
+			</div>
+		</div>
+		{{end}}
+	</div>
+
+	<a href="/admin/edit_texts" class="edit_text_link">Редактировать тексты на страницах</a>
+</div>
+
+{{ include "admin/footer" }}

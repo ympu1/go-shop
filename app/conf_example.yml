@@ -1,0 +1,16 @@
+DBAccess: user_name:password@/db_name
+TempUploadPath: ../temp/
+ImageUploadPath: ../static/img/pictures/
+ThumbPostfix: _thumb
+ThumbWidth: 600
+TelegramURLTemplate: https://api.telegram.org/bot%s/sendMessage
+TelegramBotTokken: SOME_TELEGRAM_BOT_TOKKEN_HERE
+TelegramChatID: 0
+AdminSessionKey: admin
+CookieSecretKey: SOME_KEY
+CookieSessionName: shopsession
+FillFormMessage: Fill out the login form
+AccessDeneidMessage: Access denied
+SessionErrorMessage: Error. Please try again later
+GettingFileError: Getting file error
+OrderMessageTemplate: "Новый заказ!\n\n<b>Имя:</b> %s\n<b>Контакты:</b> %s"

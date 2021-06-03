@@ -1,0 +1,32 @@
+{{ include "admin/header" }}
+
+
+<div class="container">
+	<h1>Редактировать тексты</h3>
+
+	<form action="/admin/edit_texts/save" method="POST">
+		<h3 class="admin_block_title">Главная страница:</h3>
+		<label>Title главной страницы</label>
+		<input type="text" name="home_title" value="{{ .homeTitle }}">
+		<label>Description главной страницы</label>
+		<textarea name="home_description">{{ .homeDescription }}</textarea>
+		<label>Заголовок h1 главной страницы</label>
+		<input type="text" name="home_h1" value="{{ .homeH1 }}">
+		<label>Текст на главной странице</label>
+		<textarea name="home_text" class="tinymce">{{ .homeText }}</textarea>
+
+		<h3 class="admin_block_title">Страница about:</h3>
+		<label>Title страницы about</label>
+		<input type="text" name="about_title" value="{{ .aboutTitle }}">
+		<label>Description страницы about</label>
+		<textarea name="about_description">{{ .aboutDescription }}</textarea>
+		<label>Заголовок h1 страницы about</label>
+		<input type="text" name="about_h1" value="{{ .aboutH1 }}">
+		<label>Текст на странице about</label>
+		<textarea name="about_text" class="tinymce">{{ .aboutText }}</textarea>
+
+		<input type="submit" value="Сохранить">
+	</form>
+</div>
+
+{{ include "admin/footer" }}

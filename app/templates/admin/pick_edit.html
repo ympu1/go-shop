@@ -1,0 +1,37 @@
+{{ include "admin/header" }}
+
+<div class="container">
+	<h1>Редактировать картину</h1>
+
+	{{ if .show_succ_message }}
+		<span class="post_message">Изменения успешно сохранены.</span>
+	{{ end }}
+
+	<a href="/admin/remove_pick/{{ .product.ID }}" class="dell_button">Удалить картину</a>
+
+	<form action="" method="POST" enctype="multipart/form-data">
+		<a href="{{ .product.Image }}" data-fancybox><img class="thumb_preview" src="{{ .product.Thumb }}" alt=""></a>
+		Выбрать другое фото: <input type="file" name="image">
+		<input type="text" placeholder="Название" name="name" value="{{ .product.Name }}" required>
+		<input type="number" min="1" step="any" placeholder="Цена" name="price" value="{{ .product.Price }}" required >
+		<textarea placeholder="Описание" name="description" required>{{ .product.Description }}</textarea>
+		<h3 class="small_title">Характеристики:</h3>
+		{{ range $key, $value := .product.Attributes }}
+		<div class="attr_line">
+			<input name="attr_name[]" type="text" placeholder="Название характиристики" value="{{ $key }}">
+			<input name="attr_value[]" type="text" placeholder="Значение характиристики" value="{{ $value }}">
+		</div>
+		{{ end }}
+		<a href="#" id="add_attr">+ Добавить характеристику</a>
+		<input type="submit" value="Сохранить">
+	</form>
+
+	<div class="hidden_attr_field">
+		<div class="attr_line">
+			<input name="attr_name[]" type="text" placeholder="Название характиристики">
+			<input name="attr_value[]" type="text" placeholder="Значение характиристики">
+		</div>
+	</div>
+</div>
+
+{{ include "admin/footer" }}

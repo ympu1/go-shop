@@ -1,0 +1,15 @@
+{{ include "header" }}
+
+<section class="container" id="main_content">
+	{{ if .message }}
+		<span class="login_message">{{ .message }}</span>
+	{{ end }}
+
+	<form method="POST" class="login_form">
+		<input name="name" type="text" placeholder="Имя">
+		<input name="password" type="password" placeholder="Пароль">
+		<input type="submit" class="styled_button">
+	</form>
+</section>
+
+{{ include "footer" }}

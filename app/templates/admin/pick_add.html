@@ -1,0 +1,27 @@
+{{ include "admin/header" }}
+
+<div class="container">
+	<h1>Добавить картину</h1>
+
+	{{ if .show_succ_message }}
+		<span class="post_message">Картина успешно добавлена.</span>
+	{{ end }}
+
+	<form action="/admin/pick_add" method="POST" enctype="multipart/form-data">
+		Фото: <input type="file" name="image" required>
+		<input type="text" placeholder="Название" name="name" required>
+		<input type="number" min="1" step="any" placeholder="Цена" required name="price">
+		<textarea name="description" placeholder="Описание" required></textarea>
+		<a href="#" id="add_attr">+ Добавить характеристику</a>
+		<input type="submit" value="Сохранить">
+	</form>
+
+	<div class="hidden_attr_field">
+		<div class="attr_line">
+			<input name="attr_name[]" type="text" placeholder="Название характиристики">
+			<input name="attr_value[]" type="text" placeholder="Значение характиристики">
+		</div>
+	</div>
+</div>
+
+{{ include "admin/footer" }}

@@ -1,0 +1,41 @@
+{{ include "header" }}
+
+<section class="container home_page" id="main_content">
+	<h1>{{ .h1 }}</h1>
+
+	<div class="shop_grid">
+		{{ range .products }}
+		<a href="{{ .URL }}" class="product_block" data-id="{{ .ID }}">
+			<div class="product_image" style="background-image: url({{ .Thumb }});"></div>
+			<div class="product_inf">
+				<h3>{{ .Name }}</h3>
+				<span class="product_price">$<span class="price_value">{{ .Price }}</span></span>
+				<span class="buy_button">Buy</span>
+			</div>
+		</a>
+		{{ end }}
+	</div>
+
+	<div class="page_text">
+		{{ .text }}
+	</div>
+</section>
+
+<div class="hidden_popup product_popup" id="product_popup">
+	<div class="prodyt_popup_row">
+		<div class="product_image_col">
+			<a id="product_popip_pick_link" data-fancybox="product" href="/img/3.jpg">
+				<img id="popup_product_pick" src="/img/3.jpg" alt="">
+			</a>
+		</div>
+		<div class="product_inf_col">
+			<h3 id="popup_product_name">Noname</h3>
+			<span class="product_price big_price">$<span id="popup_product_price_value"></span></span>
+			<div id="popup_product_attributes"></div>
+			<div id="popup_product_text" class="product_text"></div>
+			<a href="#" class="buy_button">Buy</a>
+		</div>
+	</div>
+</div>
+
+{{ include "footer" }}

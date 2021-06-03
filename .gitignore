@@ -1,0 +1,5 @@
+node_modules
+app/conf.yml
+app/go-shop.exe
+app/go-shop
+static/img/pictures/*
